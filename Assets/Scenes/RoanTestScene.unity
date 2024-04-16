@@ -412,9 +412,9 @@ PrefabInstance:
       value: Eyes
       objectReference: {fileID: 0}
     - target: {fileID: 6965500311635994702, guid: 74575dc3bf610674e8f66beb514aa715, type: 3}
-      propertyPath: m_BehaviorName
-      value: CubeAgent
-      objectReference: {fileID: 0}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 0bbceaf36f38ef2469c604c3ca5415cd, type: 3}
     - target: {fileID: 6965500311635994702, guid: 74575dc3bf610674e8f66beb514aa715, type: 3}
       propertyPath: m_BehaviorType
       value: 0
