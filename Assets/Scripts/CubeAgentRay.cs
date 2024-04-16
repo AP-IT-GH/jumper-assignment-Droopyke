@@ -8,7 +8,7 @@ public class CubeAgentRay : Agent
 {
     public GameObject prefabMushroom;
     private GameObject spawnedMushroom;
-    public override void OnEpisodeBegin()
+	public override void OnEpisodeBegin()
     {
         Debug.Log("====NEW ROUND====");
         if (this.transform.localPosition.y < 0)
@@ -19,8 +19,14 @@ public class CubeAgentRay : Agent
         if (spawnedMushroom != null)
             Destroy(spawnedMushroom);
 
-        spawnedMushroom = Instantiate(prefabMushroom, new Vector3(6.25f, 0.75f, 0), Quaternion.identity);
-        spawnedMushroom.GetComponent<Rigidbody>().AddForce(
+        int number = Random.Range(1, 3);
+
+        if(number == 1)
+			spawnedMushroom = Instantiate(prefabMushroom, new Vector3(6.25f, 0.75f, 0), Quaternion.identity);
+        else
+			spawnedMushroom = Instantiate(prefabMushroom, new Vector3(6.25f, 2.75f, 0), Quaternion.identity);
+
+		spawnedMushroom.GetComponent<Rigidbody>().AddForce(
                 new Vector3(-5, 0, 0),
                 ForceMode.Impulse
             );
