@@ -1,4 +1,4 @@
-* Set-up: Place the 'Barry' prefab into the scene with a platform for him to stand on.
+* Set-up: Open the RoanTestScene or use the 'ML Jumper' prefab in your own scene.
 * Goal: The agent must jump over the red blocks (Mushrooms) and collect the gold coins.
 * Agents: The environment contains one agent linked to one Model.
 * Agent Reward Function:
