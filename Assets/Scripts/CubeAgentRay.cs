@@ -70,14 +70,14 @@ public class CubeAgentRay : Agent
         Debug.Log(collision.collider.tag);
         if (collision.collider.tag.Contains("Mushroom"))
         {
-            Debug.Log("Touched box collider!");
+            Debug.Log("Touched box collider! -1f");
             SetReward(-1f);
             EndEpisode();
         }
         if (collision.collider.tag.Contains("Coin"))
         {
-            Debug.Log("Touched coin!");
-            SetReward(0.5f);
+            Debug.Log("Touched coin! +0.5f");
+            SetReward(1f);
             EndEpisode();
         }
         if (collision.collider.tag.Contains("Floor"))
@@ -94,15 +94,15 @@ public class CubeAgentRay : Agent
 
     public void Barrier_MushroomTouched()
     {
-        Debug.Log("Full reward!");
+        Debug.Log("Full reward! +1f");
         SetReward(1f);
         EndEpisode();
     }
 
     public void Barrier_CoinTouched()
     {
-        Debug.Log("Didn't touch the coin!");
-        SetReward(-0.5f);
+        Debug.Log("Didn't touch the coin!, -0.5f");
+        SetReward(-1f);
         EndEpisode();
     }
 
