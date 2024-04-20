@@ -537,7 +537,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 1
+  m_BehaviorType: 0
   m_BehaviorName: CubeAgent
   TeamId: 0
   m_UseChildSensors: 1
@@ -560,6 +560,7 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   prefabMushroom: {fileID: 7348700106803491722, guid: e0da1f3bd8f944f49b527146a63a8661, type: 3}
+  prefabCoin: {fileID: 4896218967976092019, guid: 7d5dc0aa9d91dcb48a91d6eba93fcc05, type: 3}
   speedMultiplier: 0.1
   rotationMultiplier: 5
 --- !u!114 &4425195442524131828

@@ -7,8 +7,14 @@ using Unity.MLAgents.Actuators;
 public class CubeAgentRay : Agent
 {
     public GameObject prefabMushroom;
-    private GameObject spawnedMushroom;
-	public override void OnEpisodeBegin()
+    public GameObject prefabCoin;
+    private GameObject spawnedItem;
+    private Vector3 barryPosition;
+    public override void Initialize()
+    {
+        barryPosition = this.GetComponent<Transform>().position;
+    }
+    public override void OnEpisodeBegin()
     {
         Debug.Log("====NEW ROUND====");
         if (this.transform.localPosition.y < 0)
@@ -16,18 +22,20 @@ public class CubeAgentRay : Agent
             this.transform.localPosition = new Vector3(0, 0.5f, 0); this.transform.localRotation = Quaternion.identity;
         }
 
-        if (spawnedMushroom != null)
-            Destroy(spawnedMushroom);
+        if (spawnedItem != null)
+            Destroy(spawnedItem);
 
-        int number = Random.Range(1, 3);
+        int number = 2;//Random.Range(1, 3);
 
         if(number == 1)
-			spawnedMushroom = Instantiate(prefabMushroom, new Vector3(6.25f, 0.75f, 0), Quaternion.identity);
+			spawnedItem = Instantiate(prefabMushroom, new Vector3(barryPosition.x + 6.25f, barryPosition.y, barryPosition.z), Quaternion.identity);
         else
-			spawnedMushroom = Instantiate(prefabMushroom, new Vector3(6.25f, 2.75f, 0), Quaternion.identity);
+			spawnedItem = Instantiate(prefabCoin, new Vector3(barryPosition.x + 6.25f, barryPosition.y, barryPosition.z), Quaternion.identity);
 
-		spawnedMushroom.GetComponent<Rigidbody>().AddForce(
-                new Vector3(-5, 0, 0),
+        int randomSpeed = Random.Range(-7, -2);
+
+		spawnedItem.GetComponent<Rigidbody>().AddForce(
+                new Vector3(randomSpeed, 0, 0),
                 ForceMode.Impulse
             );
     }
@@ -66,6 +74,12 @@ public class CubeAgentRay : Agent
             SetReward(-1f);
             EndEpisode();
         }
+        if (collision.collider.tag.Contains("Coin"))
+        {
+            Debug.Log("Touched coin!");
+            SetReward(0.5f);
+            EndEpisode();
+        }
         if (collision.collider.tag.Contains("Floor"))
         {
             canJump = true;
@@ -78,10 +92,17 @@ public class CubeAgentRay : Agent
         continuousActionsOut[0] = Input.GetAxis("Vertical");
     }
 
-    public void MushroomTouched()
+    public void Barrier_MushroomTouched()
     {
         Debug.Log("Full reward!");
         SetReward(1f);
+        EndEpisode();
+    }
+
+    public void Barrier_CoinTouched()
+    {
+        Debug.Log("Didn't touch the coin!");
+        SetReward(-0.5f);
         EndEpisode();
     }
 

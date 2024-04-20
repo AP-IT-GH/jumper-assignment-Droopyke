@@ -11,7 +11,11 @@ public class BarrierScript : MonoBehaviour
         Debug.Log("Barrier touched: " + collision.collider.name);
         if (collision.collider.tag.Contains("Mushroom"))
         {
-            cube.MushroomTouched();
+            cube.Barrier_MushroomTouched();
+        }
+        if (collision.collider.tag.Contains("Coin"))
+        {
+            cube.Barrier_CoinTouched();
         }
     }
 }
