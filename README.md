@@ -13,8 +13,11 @@
   * Config:
       CubeAgent.yaml: (https://github.com/AP-IT-GH/jumper-assignment-YR/blob/0e591ff06ff6af7714df26d152a43dd3ea3b9993/Assets/config/CubeAgent.yaml)
     
+    
 ![image](https://github.com/AP-IT-GH/jumper-assignment-YR/assets/102216533/89264809-5202-4ca2-911f-12f20120b84e)
 In the image above you can see the Agent his training before adding the gold coin. The Agent trained very fast without the gold coin and knew what to do in no time. 
+
+
 ![image](https://github.com/AP-IT-GH/jumper-assignment-YR/assets/102216533/2b5fec6c-8131-458b-999d-129973e14ebc)
 In the image above you can see the Agent his training after adding the gold coin. Here he trains slower and has also some ups and downs during his training. 
 
