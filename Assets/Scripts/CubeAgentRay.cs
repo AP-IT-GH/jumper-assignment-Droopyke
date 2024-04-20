@@ -17,10 +17,7 @@ public class CubeAgentRay : Agent
     public override void OnEpisodeBegin()
     {
         Debug.Log("====NEW ROUND====");
-        if (this.transform.localPosition.y < 0)
-        {
-            this.transform.localPosition = new Vector3(0, 0.5f, 0); this.transform.localRotation = Quaternion.identity;
-        }
+        this.transform.localPosition = new Vector3(6, -3, 0); this.transform.localRotation = Quaternion.identity;
 
         if (spawnedItem != null)
             Destroy(spawnedItem);
