@@ -25,7 +25,7 @@ public class CubeAgentRay : Agent
         if (spawnedItem != null)
             Destroy(spawnedItem);
 
-        int number = 2;//Random.Range(1, 3);
+        int number = Random.Range(1, 3);
 
         if(number == 1)
 			spawnedItem = Instantiate(prefabMushroom, new Vector3(barryPosition.x + 6.25f, barryPosition.y, barryPosition.z), Quaternion.identity);
