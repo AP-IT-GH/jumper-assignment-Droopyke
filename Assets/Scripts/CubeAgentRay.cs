@@ -31,7 +31,7 @@ public class CubeAgentRay : Agent
         else
 			spawnedItem = Instantiate(prefabCoin, new Vector3(barryPosition.x + 6.25f, barryPosition.y, barryPosition.z), Quaternion.identity);
 
-        int randomSpeed = Random.Range(-7, -2);
+        int randomSpeed = Random.Range(-7, -4);
 
 		spawnedItem.GetComponent<Rigidbody>().AddForce(
                 new Vector3(randomSpeed, 0, 0),
