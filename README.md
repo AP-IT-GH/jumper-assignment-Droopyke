@@ -19,6 +19,7 @@ In the image above you can see the Agent his training before adding the gold coi
 In the image above you can see the Agent his training after adding the gold coin. Here he trains slower and has also some ups and downs during his training. 
 
 Conclusion:
+
 The randomness coorelates with the speed of learning for the ML Agent.
 When we introduced randomly speeded blocks that the ML agent had to jump over, we saw the learning time increased.
 
