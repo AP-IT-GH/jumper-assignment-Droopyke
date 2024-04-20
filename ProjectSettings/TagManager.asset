@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Mushroom
+  - Coin
   layers:
   - Default
   - TransparentFX
