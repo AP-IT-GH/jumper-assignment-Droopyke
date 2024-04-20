@@ -323,10 +323,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eyes
       objectReference: {fileID: 0}
-    - target: {fileID: 6965500311635994702, guid: 74575dc3bf610674e8f66beb514aa715, type: 3}
-      propertyPath: m_Model
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 9016736774107047776, guid: 74575dc3bf610674e8f66beb514aa715, type: 3}
       propertyPath: m_Name
       value: Barry

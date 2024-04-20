@@ -14,17 +14,19 @@ public class CubeAgentRay : Agent
     {
         barryPosition = this.GetComponent<Transform>().position;
     }
+    int currentItem;
     public override void OnEpisodeBegin()
     {
         Debug.Log("====NEW ROUND====");
-        this.transform.localPosition = new Vector3(6, -3, 0); this.transform.localRotation = Quaternion.identity;
+        if (this.transform.localPosition.y < -10)
+            this.transform.localPosition = new Vector3(6, -3, 0); this.transform.localRotation = Quaternion.identity;
 
         if (spawnedItem != null)
             Destroy(spawnedItem);
 
-        int number = Random.Range(1, 3);
+        currentItem = Random.Range(1, 3);
 
-        if(number == 1)
+        if(currentItem == 1)
 			spawnedItem = Instantiate(prefabMushroom, new Vector3(barryPosition.x + 6.25f, barryPosition.y, barryPosition.z), Quaternion.identity);
         else
 			spawnedItem = Instantiate(prefabCoin, new Vector3(barryPosition.x + 6.25f, barryPosition.y, barryPosition.z), Quaternion.identity);
@@ -40,6 +42,7 @@ public class CubeAgentRay : Agent
     public override void CollectObservations(VectorSensor sensor)
     {
         // Target en Agent posities
+        sensor.AddObservation(currentItem);
         sensor.AddObservation(this.transform.localPosition);
 
     }
@@ -63,8 +66,6 @@ public class CubeAgentRay : Agent
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.collider.name);
-        Debug.Log(collision.collider.tag);
         if (collision.collider.tag.Contains("Mushroom"))
         {
             Debug.Log("Touched box collider! -1f");
@@ -73,7 +74,7 @@ public class CubeAgentRay : Agent
         }
         if (collision.collider.tag.Contains("Coin"))
         {
-            Debug.Log("Touched coin! +0.5f");
+            Debug.Log("Touched coin! +1f");
             SetReward(1f);
             EndEpisode();
         }
@@ -98,7 +99,7 @@ public class CubeAgentRay : Agent
 
     public void Barrier_CoinTouched()
     {
-        Debug.Log("Didn't touch the coin!, -0.5f");
+        Debug.Log("Didn't touch the coin!, -1f");
         SetReward(-1f);
         EndEpisode();
     }
